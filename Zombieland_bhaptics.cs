@@ -52,9 +52,30 @@ namespace Zombieland_bhaptics
             [HarmonyPostfix]
             public static void Postfix(Zombieland.Gameplay.Services.EndMissionReason reason)
             {
-                if (reason == Zombieland.Gameplay.Services.EndMissionReason.Died) { tactsuitVr.PlaybackHaptics("HeartBeat"); }
-                if (reason == Zombieland.Gameplay.Services.EndMissionReason.Completed) { tactsuitVr.PlaybackHaptics("Healing"); }
+                if (reason == Zombieland.Gameplay.Services.EndMissionReason.Died) { tactsuitVr.PlaybackHaptics("KilledByZombie"); }
+                if (reason == Zombieland.Gameplay.Services.EndMissionReason.Completed) { tactsuitVr.PlaybackHaptics("FinishedLevel"); }
             }
         }
+
+        [HarmonyPatch(typeof(Zombieland.Gameplay.Weapons.Explosives.ExplosionBehaviour), "Explode", new Type[] {  })]
+        public class bhaptics_ExplosiveExplode
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
+                tactsuitVr.PlaybackHaptics("ExplosionBelly");
+            }
+        }
+
+        [HarmonyPatch(typeof(Zombieland.Gameplay.Weapons.Explosives.GrenadeBehaviour), "Explode", new Type[] { })]
+        public class bhaptics_GrenadeExplode
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
+                tactsuitVr.PlaybackHaptics("ExplosionBelly");
+            }
+        }
+
     }
 }

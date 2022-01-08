@@ -15,7 +15,7 @@ using MelonLoader;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: MelonInfo(typeof(Zombieland_bhaptics.Zombieland_bhaptics), "Zombieland_bhaptics", "1.0", "Florian Fahrenberger")]
+[assembly: MelonInfo(typeof(Zombieland_bhaptics.Zombieland_bhaptics), "Zombieland_bhaptics", "1.1", "Florian Fahrenberger")]
 [assembly: MelonGame("XR Games", "zombieland_vr_headshot_fever")]
 
 // Durch Festlegen von ComVisible auf FALSE werden die Typen in dieser Assembly
