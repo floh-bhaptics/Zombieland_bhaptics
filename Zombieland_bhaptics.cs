@@ -8,15 +8,18 @@ using MelonLoader;
 using HarmonyLib;
 using MyBhapticsTactsuit;
 
+[assembly: MelonInfo(typeof(Zombieland_bhaptics.Zombieland_bhaptics), "Zombieland_bhaptics", "1.1", "Florian Fahrenberger")]
+[assembly: MelonGame("XR Games", "zombieland_vr_headshot_fever")]
+
+
 namespace Zombieland_bhaptics
 {
     public class Zombieland_bhaptics : MelonMod
     {
         public static TactsuitVR tactsuitVr;
 
-        public override void OnApplicationStart()
+        public override void OnInitializeMelon()
         {
-            base.OnApplicationStart();
             tactsuitVr = new TactsuitVR();
             tactsuitVr.PlaybackHaptics("HeartBeat");
         }
